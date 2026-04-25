@@ -478,7 +478,7 @@ async function doSearch() {
   const area = document.getElementById('results-area');
   area.innerHTML = '<p class="status">Searching...</p>';
   try {
-    const res = await fetch(`https://www.omdbapi.com/?apikey=a04e3f29&s=${encodeURIComponent(q)}&type=movie`);
+    const res = await fetch(`https://www.omdbapi.com/?apikey=47f0ac8a&s=${encodeURIComponent(q)}&type=movie`);
     const data = await res.json();
     if (data.Response === 'False') { area.innerHTML = `<p class="status">${data.Error || 'No results found.'}</p>`; return; }
     currentResults = data.Search || [];
@@ -549,7 +549,7 @@ async function showDetail(imdbId, from) {
   const view = from === 'search' ? document.getElementById('results-area') : document.getElementById('favs-area');
   view.innerHTML = '<p class="status">Loading...</p>';
   try {
-    const res = await fetch(`https://www.omdbapi.com/?apikey=a04e3f29&i=${imdbId}&plot=short`);
+    const res = await fetch(`https://www.omdbapi.com/?apikey=47f0ac8a&i=${imdbId}&plot=short`);
     const m = await res.json();
     if (m.Response === 'False') { view.innerHTML = '<p class="status">Could not load.</p>'; return; }
 
